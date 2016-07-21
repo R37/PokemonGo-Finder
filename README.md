@@ -2,6 +2,11 @@
 
 This is a fork of [the popular PokemonGo-Map repository](https://github.com/AHAAAAAAA/PokemonGo-Map) with the purpose of allowing users to search for specific Pokemon without having to constantly monitor the map of nearby Pokemon. This allows users to set a list of sought-after Pokemon and receive notifications through [Pushbullet](https://www.pushbullet.com/). All API and map functionality was left untouched.
 
+## Configure Twitter
+Generate your twitter api keys
+then type them into the correct places in notifier.py
+once you have done this the account will tweet google maps links to pokemon that the program detects
+
 ## Configure PushBullet
 To generate a token for sending yourself notifications using the Pushbullet API, create an account on [Pushbullet](https://www.pushbullet.com/). Then click your avatar and select the "My Account" page. Scroll to where you see "Access Tokens" and click the "Create Access Token" button. Copy this hash, you'll need it later.
 
