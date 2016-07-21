@@ -1,10 +1,16 @@
 import json
+import tweepy
 from pushbullet import Pushbullet
 from geopy.geocoders import Nominatim
 from datetime import datetime
 
 pushbullet_client = None
 wanted_pokemon = None
+
+auth = tweepy.OAuthHandler("consumer key here", "consumer secret key here")
+auth.set_access_token("access key here", "access secure key here")
+
+api = tweepy.API(auth)
 
 # Initialize object
 def init():
@@ -39,8 +45,10 @@ def pokemon_found(pokemon):
     gMaps = "http://maps.google.com/maps?q=" + str(pokemon["lat"]) + "," + str(pokemon["lng"]) + "&24z"
     notification_text = "Pokemon Finder found " + _str(pokemon["name"]) + "!"
     disappear_time = str(datetime.fromtimestamp(pokemon["disappear_time"]).strftime("%I:%M%p").lstrip('0'))+")"
-    location_text = "Go search at this location: " + address + ". Locate on Google Maps : " + gMaps + ". " + _str(pokemon["name"]) + " will be available until " + disappear_time + "."
-    push = pushbullet_client.push_note(notification_text, location_text)
+    location_text = _str(pokemon["name"]) + " Found at " + gMaps + " available until " + disappear_time + "."
+    push = pushbullet_client.push_link(notification_text, location_text)
+    api.update_status(location_text)
+
 
 
 
