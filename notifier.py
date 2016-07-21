@@ -47,6 +47,7 @@ def pokemon_found(pokemon):
     disappear_time = str(datetime.fromtimestamp(pokemon["disappear_time"]).strftime("%I:%M%p").lstrip('0'))+")"
     location_text = _str(pokemon["name"]) + " Found at " + gMaps + " available until " + disappear_time + "."
     push = pushbullet_client.push_link(notification_text, location_text)
+    # Tweets pokemon name and google maps location to the specified twitter account you gave the api keys for
     api.update_status(location_text)
 
 
