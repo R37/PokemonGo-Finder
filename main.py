@@ -80,10 +80,13 @@ is_ampm_clock = False
 
 # stuff for in-background search thread
 search_thread = None
+<<<<<<< HEAD
 
 # Login session
 login_session = None
 
+=======
+>>>>>>> origin/master
 def memoize(obj):
     cache = obj.cache = {}
 
@@ -448,7 +451,11 @@ def get_args():
         "display_gym": False,
         "display_pokestop": False,
         "do_not_notify": None,
+<<<<<<< HEAD
         "host": "0.0.0.0",
+=======
+        "host": "127.0.0.1",
+>>>>>>> origin/master
         "ignore": None,
         "locale": "en",
         "location": None,
@@ -725,6 +732,7 @@ transform_from_wgs_to_gcj(Location(Fort.Latitude, Fort.Longitude))
             "name": pokename
         }
 
+<<<<<<< HEAD
         
 
         
@@ -736,6 +744,15 @@ transform_from_wgs_to_gcj(Location(Fort.Latitude, Fort.Longitude))
              notifier.pokemon_found(pokemon_obj)
         #change
 		
+=======
+        pokemons[poke.SpawnPointId] = pokemon_obj
+
+        print "Pokemon :", pokemon_obj
+
+        if poke.SpawnPointId not in pokemons:
+            notifier.pokemon_found(pokemon_obj)
+
+>>>>>>> origin/master
 def clear_stale_pokemons():
     current_time = time.time()
 
